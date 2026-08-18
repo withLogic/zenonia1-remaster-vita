@@ -46,6 +46,9 @@ typedef struct CGsStateManagerNode {
     struct CGsStateManagerNode *next;
 } CGsStateManagerNode;
 
+// the game corrupts its StateManager during play and causes a crash
+// this rebuilds the StateManager to a working state.
+// For this portion of the code AI Assistance was used.
 static int CGsStateManagerNode_Invoke(CGsStateManagerNode *node, void *pObj) {
     void *ptr = node->ptr;
     int32_t adj = node->adj;
@@ -62,8 +65,11 @@ static int CGsStateManagerNode_Invoke(CGsStateManagerNode *node, void *pObj) {
     return func(adjThis);
 }
 
-int CGsStateManager_Run_patched(void *mgrSelf, void *pObj, int which) {
-    CGsStateManagerNode *head = *(CGsStateManagerNode **)mgrSelf;
+// the game corrupts its StateManager during play and causes a crash
+// this rebuilds the StateManager to a working state.
+// For this portion of the code AI Assistance was used.
+int CGsStateManagerRun_patched(void *this, void *pObj, int which) {
+    CGsStateManagerNode *head = *(CGsStateManagerNode **)this;
     if (!head) { return -1; }
 
     if ((which & 0xFF) == 0) {
@@ -148,7 +154,6 @@ void _ZN9CMvPlayer13DrawCharacterEii_patched(void *this, int param1, int param2)
     return 0;
 }
 
-
 void so_patch(void) {
     CMvAppC1Ev_hook = hook_addr((uintptr_t)so_symbol(&so_mod, "_ZN6CMvAppC1Ev"),
         (uintptr_t)&CMvAppC1Ev_patched);
@@ -175,6 +180,6 @@ void so_patch(void) {
         (uintptr_t)&_ZN11CMvGraphics10SetQualityE16EnumQualityLevel_patched); 
 
     CGsStateManagerI12CMvGameStateERunPS0_h_hook = hook_addr((uintptr_t)so_symbol(&so_mod, "_ZN15CGsStateManagerI12CMvGameStateE3RunEPS0_h"),
-        (uintptr_t)&CGsStateManager_Run_patched);
+        (uintptr_t)&CGsStateManagerRun_patched);
 
 }

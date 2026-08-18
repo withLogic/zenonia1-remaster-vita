@@ -112,14 +112,6 @@ void controls_handler_touch(int32_t id, float x, float y, ControlsAction action)
                 l_debug("controls_handler_touch: PointerPress at (%f, %f)", xx, yy);
                 _ZN6CMvApp14EvPointerPressEP15MC_PointerEvent(g_CMvApp_instance, touches);
                 break;
-            /*case CONTROLS_ACTION_UP:
-                l_debug("controls_handler_touch: PointerRelease at (%f, %f)", x, y);
-                _ZN10GVUISystem14PointerReleaseEii(g_GVUISystem_instance, (int)x, (int)y);
-                break;
-            case CONTROLS_ACTION_MOVE:
-                l_debug("controls_handler_touch: PointerMove at (%f, %f)", x, y);
-                _ZN10GVUISystem11PointerMoveEii(g_GVUISystem_instance, (int)x, (int)y);
-                break;*/
         }
     } else {
         l_debug("controls_handler_touch: g_GVUISystem_instance is NULL, cannot handle touch event");
