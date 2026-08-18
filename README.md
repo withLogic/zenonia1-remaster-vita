@@ -11,7 +11,7 @@ While Zenonia 1 is already available on the PlayStation Vita as a PSP Mini, this
 
 <strong>Note:</strong> Zenonia 1 is currently getting a release on [Steam](https://store.steampowered.com/app/4538960/ZENONIA_1/) and the Nintendo Switch. If you enjoy this port, please consider buying the official release through these channels as well. 
 
-Like this port? Consider [buying me a coffee](https://ko-fi.com/withlogic)!
+Like this port? Consider [buying me a coffee](https://ko-fi.com/withlogic)! Run into problems? Submit an issue.
 
 ## Notes
 
@@ -21,6 +21,7 @@ Like this port? Consider [buying me a coffee](https://ko-fi.com/withlogic)!
     - GraphicsQuality, 0, 1, 2. This sets the graphics quality setting. The game defaults to its lowest setting.
 - Touchscreen does NOT work currently, though the controls have been mapped to the Vita's control pad, so it should not be a problem. 
 - Network menu or network options do not work.
+- Some graphical errors
 
 ## Controls
 - Left Analog: Move
