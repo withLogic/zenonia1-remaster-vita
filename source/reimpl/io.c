@@ -115,7 +115,7 @@ int stat_soloader(const char * path, stat64_bionic * buf) {
     }
 
     if(strstr(path, "Save")){
-        snprintf(new_path, sizeof(new_path), "%s%s", "ux0:/data/zenonia2", path + 1);
+        snprintf(new_path, sizeof(new_path), "%s%s", "ux0:/data/zenonia1", path + 1);
     } else {
         snprintf(new_path, sizeof(new_path), "%s", path);
     }

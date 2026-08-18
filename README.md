@@ -16,7 +16,7 @@ Like this port? Consider [buying me a coffee](https://ko-fi.com/withlogic)!
 ## Notes
 
 - The loader has been tested with the original Zenonia 1 Remaster release/
-- Editing the config.txt file at ux0:/data/zenonia2/ yields two configuration options:
+- Editing the config.txt file at ux0:/data/zenonia1/ yields two configuration options:
     - CapFramerate, 0 or 1. This sets the framerate to 30fps. Uncapping it allows the game to reach 60fps in some areas. Note that the game logic is tied to the framerate. 
     - GraphicsQuality, 0, 1, 2. This sets the graphics quality setting. The game defaults to its lowest setting.
 - Touchscreen does NOT work currently, though the controls have been mapped to the Vita's control pad, so it should not be a problem. 
