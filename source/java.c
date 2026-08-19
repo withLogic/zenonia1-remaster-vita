@@ -32,6 +32,15 @@ static jobject readAssete_impl(jmethodID id, va_list args) {
     sceClibPrintf("[readAssete] INFO: Asset open : %s\n", filename);
 
     AAsset* asset = AAssetManager_open(NULL, filename, AASSET_MODE_BUFFER);
+    
+    if (!asset && strcmp(filename, "data/StrAnimal_G.zt1") == 0) {
+        const char* redirect_filename = "data_old/StrAnimal_G.zt1";
+        asset = AAssetManager_open(NULL, redirect_filename, AASSET_MODE_UNKNOWN);
+        if (asset) {
+            sceClibPrintf("[isAssetExist] '%s' not found, attempting to redirect to '%s'\n", filename, redirect_filename);
+        }
+    }
+
     if (!asset) {
         ReleaseStringUTFChars(NULL, jstr, filename);
         return NULL;
@@ -78,6 +87,15 @@ static jint isAssetExist_impl(jmethodID id, va_list args) {
     }
 
     AAsset* asset = AAssetManager_open(NULL, filename, AASSET_MODE_UNKNOWN);
+
+    if (!asset && strcmp(filename, "data/StrAnimal_G.zt1") == 0) {
+        const char* redirect_filename = "data_old/StrAnimal_G.zt1";
+        asset = AAssetManager_open(NULL, redirect_filename, AASSET_MODE_UNKNOWN);
+        if (asset) {
+            sceClibPrintf("[isAssetExist] '%s' not found, attempting to redirect to '%s'\n", filename, redirect_filename);
+        }
+    }
+
     int length = 0;
     
     if (asset) {

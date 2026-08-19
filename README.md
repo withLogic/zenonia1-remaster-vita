@@ -22,6 +22,7 @@ Like this port? Consider [buying me a coffee](https://ko-fi.com/withlogic)! Run 
 - Touchscreen does NOT work currently, though the controls have been mapped to the Vita's control pad, so it should not be a problem. 
 - Network menu or network options do not work.
 - Some graphical errors
+- The Zenonia 1 Remaster has a bug that can cause a crash if you talk to the puppy NPC. This port includes a fix to prevent the crash, but the dialogue for the puppy is Korean. You can get a copy of `StrAnimal_G.zt1` from a different version of Zenonia 1 and place it in `ux0:/data/zenonia1/assets/data/` to remedy this. This was tested with a copy of `StrAnimal_G.zt1` from the iOS version of the game.
 
 ## Controls
 - Left Analog: Move
