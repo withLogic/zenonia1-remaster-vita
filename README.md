@@ -33,6 +33,10 @@ Like this port? Consider [buying me a coffee](https://ko-fi.com/withlogic)! Run 
 - Right Analog: Use Skills
 
 ## Changelog
+### v.0.1.1
+
+- Includes a fix for the "puppy crash" where talking to the puppy NPC character would cause the game to crash.
+
 ### v.0.1
 
 - Initial Release.
