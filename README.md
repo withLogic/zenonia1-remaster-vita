@@ -15,7 +15,8 @@ Like this port? Consider [buying me a coffee](https://ko-fi.com/withlogic)! Run 
 
 ## Notes
 
-- The loader has been tested with the original Zenonia 1 Remaster release/
+- The loader has been tested with the original Zenonia 1 Remaster release.
+- **Warning:** This loader does not currently work with the Zenonia 1 Remaster that was released on 8/21/2026 with the SHA256 hash of `8B1306DE9C6404A5377DBDFC8A969C7AB00084B9A25EF3524506E65538E919DF`.
 - Editing the config.txt file at ux0:/data/zenonia1/ yields two configuration options:
     - CapFramerate, 0 or 1. This sets the framerate to 30fps. Uncapping it allows the game to reach 60fps in some areas. Note that the game logic is tied to the framerate. 
     - GraphicsQuality, 0, 1, 2. This sets the graphics quality setting. The game defaults to its lowest setting.

@@ -21,6 +21,8 @@ extern void *g_CMvApp_instance;
 extern void *g_CMvPlayer_instance;
 
 extern int settings_capframerate;
+extern int settings_screenheight;
+extern int settings_screenwidth;
 
 int (* _ZN6CMvApp10EvKeyPressEi)(void *this, int keycode);
 int (* _ZN6CMvApp12EvKeyReleaseEi)(void *this, int keycode);
@@ -28,6 +30,9 @@ int (* _ZN6CMvApp14EvPointerPressEP15MC_PointerEvent)(void *this, void *event);
 int (* _ZN16CGxEventTargetT114EvPointerPressEP15MC_PointerEvent)(void *this, void *event);
 void (* _ZN12CMvCharacter6FullHPEv)(void *this);
 void (* _ZN12CMvCharacter5SetSPEib)(void *this, int param1, int param2);
+
+int screenHeight = 544;
+int screenWidth = 960;
 
 int pressL1 = 0;
 int pressR1 = 0;
@@ -58,8 +63,13 @@ int main() {
         eglSwapInterval(0, 2);
     }
 
-    NativeInit(&jvm, NULL, 960, 544);
-    NativeResize(&jvm, NULL, 960, 544);
+    if(settings_screenheight > 0 && settings_screenwidth > 0) {
+        screenHeight = settings_screenheight;
+        screenWidth = settings_screenwidth;
+    }
+
+    NativeInit(&jvm, NULL, screenWidth, screenHeight);
+    NativeResize(&jvm, NULL, screenWidth, screenHeight);
 
     while (1) {
         controls_poll();

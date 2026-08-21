@@ -14,6 +14,8 @@
 
 bool settings_capframerate;
 int settings_graphicsqualty;
+int settings_screenheight;
+int settings_screenwidth;
 
 void settings_reset() {
     settings_capframerate  = true;
@@ -32,6 +34,8 @@ void settings_load() {
         while (EOF != fscanf(config, "%[^ ] %d\n", buffer, &value)) {
             if 		(strcmp("CapFramerate", buffer) == 0) 	settings_capframerate  = (bool)value;
             else if (strcmp("GraphicsQuality", buffer) == 0) settings_graphicsqualty = (int)value;
+            else if (strcmp("xScreenHeight", buffer) == 0) settings_screenheight = (int)value;
+            else if (strcmp("xScreenWidth", buffer) == 0) settings_screenwidth = (int)value;
         }
         fclose(config);
     }
@@ -43,6 +47,8 @@ void settings_save() {
     if (config) {
         fprintf(config, "%s %d\n", "CapFramerate", (bool)(settings_capframerate));
         fprintf(config, "%s %d\n", "GraphicsQuality", (int)(settings_graphicsqualty));
+        fprintf(config, "%s %d\n", "xScreenHeight", (int)(settings_screenheight));
+        fprintf(config, "%s %d\n", "xScreenWidth", (int)(settings_screenwidth));
         fclose(config);
     }
 }

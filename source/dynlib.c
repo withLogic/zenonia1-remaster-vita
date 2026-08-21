@@ -89,6 +89,14 @@ size_t __strlen_chk(const char *s, size_t dest_len) {
     return len;
 }
 
+size_t __strlcpy_chk(char *dest, const char *src, size_t dest_len){
+    size_t len = strlen(src);
+    if (len > dest_len) {
+         len = dest_len;
+    }
+    return strlcpy(dest, src, len);
+}
+
 const unsigned int __page_size = PAGE_SIZE;
 
 extern void * _ZNSt9exceptionD2Ev;
@@ -958,6 +966,7 @@ so_default_dynlib default_dynlib[] = {
         { "strdup", (uintptr_t)&strdup },
         { "strlcat", (uintptr_t)&strlcat },
         { "strlcpy", (uintptr_t)&strlcpy },
+        { "__strlcpy_chk", (uintptr_t)&__strlcpy_chk },
         { "strlen", (uintptr_t)&strlen },
         { "__strlen_chk", (uintptr_t)&__strlen_chk },
         { "strncasecmp", (uintptr_t)&strncasecmp },
